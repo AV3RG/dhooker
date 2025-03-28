@@ -46,6 +46,7 @@ public class GsonInstance {
 
     private static final Gson GSON;
     private static final Map<Class<?>, JsonSerializer> SERIALIZERS;
+    private static final Map<Class<?>, JsonSerializer> HIERARCHY_SERIALIZERS;
 
     public static Gson getInstance() {
         return GSON;
@@ -53,6 +54,7 @@ public class GsonInstance {
 
     static {
         SERIALIZERS = new HashMap<>();
+        HIERARCHY_SERIALIZERS = new HashMap<>();
 
         SERIALIZERS.put(AllowedMentions.class, new AllowedMentionSerializer());
 
@@ -86,9 +88,11 @@ public class GsonInstance {
         SERIALIZERS.put(Instant.class, new InstantSerializer());
         SERIALIZERS.put(Message.class, new MessageSerializer());
         SERIALIZERS.put(Snowflake.class, new SnowflakeSerializer());
-        SERIALIZERS.put(SourceRepresent.class, new SourceRepresentSerializer());
+
+        HIERARCHY_SERIALIZERS.put(SourceRepresent.class, new SourceRepresentSerializer());
 
         GsonBuilder gsonBuilder = new GsonBuilder();
+        HIERARCHY_SERIALIZERS.forEach(gsonBuilder::registerTypeHierarchyAdapter);
         SERIALIZERS.forEach(gsonBuilder::registerTypeAdapter);
         GSON = gsonBuilder.create();
     }

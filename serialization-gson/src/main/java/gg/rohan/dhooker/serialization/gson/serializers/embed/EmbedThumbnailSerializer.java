@@ -1,9 +1,6 @@
 package gg.rohan.dhooker.serialization.gson.serializers.embed;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import gg.rohan.dhooker.object.embed.EmbedThumbnail;
 
 import java.lang.reflect.Type;
@@ -11,8 +8,10 @@ import java.lang.reflect.Type;
 public class EmbedThumbnailSerializer implements JsonSerializer<EmbedThumbnail> {
 
     @Override
-    public JsonElement serialize(EmbedThumbnail embedThumbnail, Type type, JsonSerializationContext jsonSerializationContext) {
-        return new JsonPrimitive(embedThumbnail.getUrl().representedValue());
+    public JsonElement serialize(EmbedThumbnail embedThumbnail, Type type, JsonSerializationContext context) {
+        JsonObject base = new JsonObject();
+        base.add("url", context.serialize(embedThumbnail.getUrl()));
+        return base;
     }
 
 }

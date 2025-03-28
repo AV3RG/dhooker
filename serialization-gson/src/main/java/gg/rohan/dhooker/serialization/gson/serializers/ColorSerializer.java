@@ -12,7 +12,7 @@ public class ColorSerializer implements JsonSerializer<Color> {
 
     @Override
     public JsonElement serialize(Color color, Type type, JsonSerializationContext jsonSerializationContext) {
-        return new JsonPrimitive(color.getRGB());
+        return new JsonPrimitive(color.getRed() << 16 | color.getGreen() << 8 | color.getBlue());
     }
 
 }
