@@ -45,8 +45,8 @@ import java.util.Map;
 public class GsonInstance {
 
     private static final Gson GSON;
-    private static final Map<Class<?>, JsonSerializer> SERIALIZERS;
-    private static final Map<Class<?>, JsonSerializer> HIERARCHY_SERIALIZERS;
+    private static final Map<Class<?>, JsonSerializer<?>> SERIALIZERS;
+    private static final Map<Class<?>, JsonSerializer<?>> HIERARCHY_SERIALIZERS;
 
     public static Gson getInstance() {
         return GSON;
@@ -84,7 +84,7 @@ public class GsonInstance {
         SERIALIZERS.put(Poll.class, new PollSerializer());
 
         SERIALIZERS.put(Color.class, new ColorSerializer());
-        SERIALIZERS.put(IdentifiedEnum.class, new IdentifiableEnumSerializer());
+        SERIALIZERS.put(IdentifiedEnum.class, new IdentifiableEnumSerializer<>());
         SERIALIZERS.put(Instant.class, new InstantSerializer());
         SERIALIZERS.put(Message.class, new MessageSerializer());
         SERIALIZERS.put(Snowflake.class, new SnowflakeSerializer());
