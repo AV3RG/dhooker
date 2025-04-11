@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import gg.rohan.dhooker.object.allowedmentions.AllowedMentions;
+import gg.rohan.dhooker.object.util.TriState;
 import gg.rohan.dhooker.serialization.gson.util.JsonUtils;
 
 import java.lang.reflect.Type;
@@ -17,7 +18,9 @@ public class AllowedMentionSerializer implements JsonSerializer<AllowedMentions>
         JsonUtils.addOptionally(base, "parse", allowedMentions.getAllowedTypes(), context);
         JsonUtils.addOptionally(base, "roles", allowedMentions.getRoles(), context);
         JsonUtils.addOptionally(base, "users", allowedMentions.getUsers(), context);
-        JsonUtils.addOptionally(base, "replied_user", allowedMentions.isRepliedUser());
+        if (TriState.isExplicitSet(allowedMentions.getRepliedUser())) {
+            base.addProperty("replied_user", allowedMentions.getRepliedUser().toBoolean());
+        }
         return base;
     }
 

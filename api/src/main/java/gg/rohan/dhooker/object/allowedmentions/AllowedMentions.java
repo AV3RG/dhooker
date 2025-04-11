@@ -1,6 +1,7 @@
 package gg.rohan.dhooker.object.allowedmentions;
 
 import gg.rohan.dhooker.object.snowflake.Snowflake;
+import gg.rohan.dhooker.object.util.TriState;
 
 import java.util.List;
 
@@ -8,13 +9,18 @@ public class AllowedMentions {
 
     private final List<AllowedMentionsType> allowedTypes;
     private final List<Snowflake> roles;
-    private final List<String> users;
-    private final boolean repliedUser;
+    private final List<Snowflake> users;
+    private final TriState repliedUser;
 
-    public AllowedMentions(List<AllowedMentionsType> allowedTypes, List<Snowflake> roles, boolean repliedUser) {
+    public AllowedMentions(
+            List<AllowedMentionsType> allowedTypes,
+            List<Snowflake> roles,
+            List<Snowflake> users,
+            TriState repliedUser
+    ) {
         this.allowedTypes = allowedTypes;
         this.roles = roles;
-        this.users = null;
+        this.users = users;
         this.repliedUser = repliedUser;
     }
 
@@ -26,11 +32,11 @@ public class AllowedMentions {
         return this.roles;
     }
 
-    public List<String> getUsers() {
+    public List<Snowflake> getUsers() {
         return this.users;
     }
 
-    public boolean isRepliedUser() {
+    public TriState getRepliedUser() {
         return this.repliedUser;
     }
 
