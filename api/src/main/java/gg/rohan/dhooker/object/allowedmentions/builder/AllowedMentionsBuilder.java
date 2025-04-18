@@ -6,6 +6,7 @@ import gg.rohan.dhooker.object.builder.AbstractBuilder;
 import gg.rohan.dhooker.object.snowflake.Snowflake;
 import gg.rohan.dhooker.object.util.TriState;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class AllowedMentionsBuilder implements AbstractBuilder<AllowedMentionsBu
 
     public AllowedMentionsBuilder addAllowedTypes(List<AllowedMentionsType> allowedTypes) {
         if (this.allowedTypes == null) {
-            this.allowedTypes = allowedTypes;
+            this.allowedTypes = new ArrayList<>(allowedTypes);
         } else {
             this.allowedTypes.addAll(allowedTypes);
         }
@@ -32,7 +33,7 @@ public class AllowedMentionsBuilder implements AbstractBuilder<AllowedMentionsBu
     }
 
     public AllowedMentionsBuilder setAllowedTypes(List<AllowedMentionsType> allowedTypes) {
-        this.allowedTypes = allowedTypes;
+        this.allowedTypes = new ArrayList<>(allowedTypes);
         return this;
     }
 
@@ -42,7 +43,7 @@ public class AllowedMentionsBuilder implements AbstractBuilder<AllowedMentionsBu
 
     public AllowedMentionsBuilder addRoles(List<Snowflake> roles) {
         if (this.roles == null) {
-            this.roles = roles;
+            this.roles = new ArrayList<>(roles);
         } else {
             this.roles.addAll(roles);
         }
@@ -54,7 +55,7 @@ public class AllowedMentionsBuilder implements AbstractBuilder<AllowedMentionsBu
     }
 
     public AllowedMentionsBuilder setRoles(List<Snowflake> roles) {
-        this.roles = roles;
+        this.roles = new ArrayList<>(roles);
         return this;
     }
 
@@ -64,10 +65,9 @@ public class AllowedMentionsBuilder implements AbstractBuilder<AllowedMentionsBu
 
     public AllowedMentionsBuilder addUsers(List<Snowflake> users) {
         if (this.users == null) {
-            this.users = users;
-        } else {
-            this.users.addAll(users);
+            this.users = new ArrayList<>(users);
         }
+        this.users.addAll(users);
         return this;
     }
 
@@ -76,7 +76,7 @@ public class AllowedMentionsBuilder implements AbstractBuilder<AllowedMentionsBu
     }
 
     public AllowedMentionsBuilder setUsers(List<Snowflake> users) {
-        this.users = users;
+        this.users = new ArrayList<>(users);
         return this;
     }
 
