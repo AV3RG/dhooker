@@ -26,4 +26,12 @@ public class EmbedField {
         return this.inline;
     }
 
+    public static EmbedField embedField(final String name, final String value) {
+        return new EmbedField(name, value, TriState.UNSET);
+    }
+
+    public static EmbedField embedField(final String name, final String value, final TriState inline) {
+        return new EmbedField(name, value, inline);
+    }
+
 }

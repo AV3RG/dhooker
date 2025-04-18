@@ -1,6 +1,7 @@
 package gg.rohan.dhooker.object.embed;
 
 import gg.rohan.dhooker.object.source.SourceRepresent;
+import gg.rohan.dhooker.object.source.UriSourceRepresent;
 
 public class EmbedAuthor {
 
@@ -25,6 +26,14 @@ public class EmbedAuthor {
 
     public SourceRepresent getIconUrl() {
         return this.iconUrl;        
+    }
+
+    public static EmbedAuthor embedAuthor(final String name, final String authorUrl, final String iconUrl) {
+        return new EmbedAuthor(name, authorUrl, new UriSourceRepresent(iconUrl));
+    }
+
+    public static EmbedAuthor embedAuthor(final String name, final String authorUrl, final SourceRepresent iconUrl) {
+        return new EmbedAuthor(name, authorUrl, iconUrl);
     }
 
 }

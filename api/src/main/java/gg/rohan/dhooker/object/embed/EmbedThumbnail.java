@@ -1,6 +1,7 @@
 package gg.rohan.dhooker.object.embed;
 
 import gg.rohan.dhooker.object.source.SourceRepresent;
+import gg.rohan.dhooker.object.source.UriSourceRepresent;
 
 public class EmbedThumbnail {
 
@@ -12,6 +13,10 @@ public class EmbedThumbnail {
 
     public SourceRepresent getUrl() {
         return this.url;
+    }
+
+    public EmbedThumbnail embedThumbnail(final String url) {
+        return new EmbedThumbnail(new UriSourceRepresent(url));
     }
 
 }

@@ -1,6 +1,7 @@
 package gg.rohan.dhooker.object.embed;
 
 import gg.rohan.dhooker.object.source.SourceRepresent;
+import gg.rohan.dhooker.object.source.UriSourceRepresent;
 
 public class EmbedImage {
 
@@ -12,6 +13,14 @@ public class EmbedImage {
 
     public SourceRepresent getUrl() {
         return this.url;
+    }
+
+    public EmbedImage embedImage(final String url) {
+        return new EmbedImage(new UriSourceRepresent(url));
+    }
+
+    public EmbedImage embedImage(final SourceRepresent url) {
+        return new EmbedImage(url);
     }
 
 }

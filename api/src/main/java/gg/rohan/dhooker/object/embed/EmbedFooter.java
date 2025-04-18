@@ -1,6 +1,7 @@
 package gg.rohan.dhooker.object.embed;
 
 import gg.rohan.dhooker.object.source.SourceRepresent;
+import gg.rohan.dhooker.object.source.UriSourceRepresent;
 
 public class EmbedFooter {
 
@@ -18,6 +19,14 @@ public class EmbedFooter {
 
     public SourceRepresent getIconUrl() {
         return this.iconUrl;
+    }
+
+    public static EmbedFooter embedFooter(final String text, final String url) {
+        return new EmbedFooter(text, new UriSourceRepresent(url));
+    }
+
+    public static EmbedFooter embedFooter(final String text, final SourceRepresent iconUrl) {
+        return new EmbedFooter(text, iconUrl);
     }
 
 }
