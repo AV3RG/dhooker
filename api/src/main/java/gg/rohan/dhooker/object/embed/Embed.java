@@ -20,7 +20,6 @@ public class Embed {
 
     public Embed(
             String title,
-            EmbedType embedType,
             String description,
             String url,
             Instant timestamp,
@@ -32,7 +31,7 @@ public class Embed {
             List<EmbedField> fields
     ) {
         this.title = title;
-        this.embedType = embedType;
+        this.embedType = EmbedType.RICH;
         this.description = description;
         this.url = url;
         this.timestamp = timestamp;
