@@ -1,5 +1,7 @@
-package gg.rohan.dhooker.object.allowedmentions;
+package gg.rohan.dhooker.object.allowedmentions.builder;
 
+import gg.rohan.dhooker.object.allowedmentions.AllowedMentions;
+import gg.rohan.dhooker.object.allowedmentions.AllowedMentionsType;
 import gg.rohan.dhooker.object.builder.AbstractBuilder;
 import gg.rohan.dhooker.object.snowflake.Snowflake;
 import gg.rohan.dhooker.object.util.TriState;
