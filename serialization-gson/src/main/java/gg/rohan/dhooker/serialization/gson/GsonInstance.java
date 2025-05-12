@@ -58,15 +58,12 @@ public class GsonInstance {
 
         SERIALIZERS.put(AllowedMentions.class, new AllowedMentionSerializer());
 
-        SERIALIZERS.put(IdentifiableButton.class, new IdentifiableButtonSerializer());
         SERIALIZERS.put(LinkButton.class, new LinkButtonSerializer());
         SERIALIZERS.put(PremiumButton.class, new PremiumButtonSerializer());
 
         SERIALIZERS.put(SelectDefaultValue.class, new SelectDefaultValueSerializer());
         SERIALIZERS.put(SnowflakeSelectMenu.class, new SnowflakeSelectMenuSerializer());
         SERIALIZERS.put(StringSelectMenu.class, new StringSelectMenuSerializer());
-
-        SERIALIZERS.put(ComponentContainer.class, new ComponentContainerSerializer());
 
         SERIALIZERS.put(EmbedAuthor.class, new EmbedAuthorSerializer());
         SERIALIZERS.put(EmbedField.class, new EmbedFieldSerializer());
@@ -84,12 +81,15 @@ public class GsonInstance {
         SERIALIZERS.put(Poll.class, new PollSerializer());
 
         SERIALIZERS.put(Color.class, new ColorSerializer());
-        SERIALIZERS.put(IdentifiedEnum.class, new IdentifiableEnumSerializer<>());
         SERIALIZERS.put(Instant.class, new InstantSerializer());
         SERIALIZERS.put(Message.class, new MessageSerializer());
-        SERIALIZERS.put(Snowflake.class, new SnowflakeSerializer());
 
         HIERARCHY_SERIALIZERS.put(SourceRepresent.class, new SourceRepresentSerializer());
+        HIERARCHY_SERIALIZERS.put(ComponentContainer.class, new ComponentContainerSerializer());
+        HIERARCHY_SERIALIZERS.put(IdentifiableButton.class, new IdentifiableButtonSerializer());
+        HIERARCHY_SERIALIZERS.put(IdentifiedEnum.class, new IdentifiableEnumSerializer<>());
+        HIERARCHY_SERIALIZERS.put(Snowflake.class, new SnowflakeSerializer());
+
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         HIERARCHY_SERIALIZERS.forEach(gsonBuilder::registerTypeHierarchyAdapter);
