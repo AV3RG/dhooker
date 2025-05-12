@@ -28,4 +28,34 @@ public class PartialAttachment {
         return this.fileContents;
     }
 
+    public static PartialAttachment partialAttachment(File file) {
+        return partialAttachment(file, file.getName(), null);
+    }
+
+    public static PartialAttachment partialAttachment(File file, String fileName) {
+        return partialAttachment(file, fileName, null);
+    }
+
+    public static PartialAttachment partialAttachment(File file, String fileName, String description) {
+        if (!file.exists()) {
+            throw new IllegalArgumentException("File does not exist");
+        }
+        if (!file.isFile()) {
+            throw new IllegalArgumentException("File is not a file");
+        }
+        if (!file.canRead()) {
+            throw new IllegalArgumentException("File is not readable");
+        }
+        try {
+            byte[] fileContents = java.nio.file.Files.readAllBytes(file.toPath());
+            return new PartialAttachment(new AttachmentSourceRepresent(fileName), description, fileContents);
+        } catch (java.io.IOException e) {
+            throw new RuntimeException("Failed to read file", e);
+        }
+    }
+
+    public static PartialAttachment partialAttachment(byte[] fileContents, String fileName, String description) {
+        return new PartialAttachment(new AttachmentSourceRepresent(fileName), description, fileContents);
+    }
+    
 }
