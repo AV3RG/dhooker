@@ -6,11 +6,11 @@ public interface Snowflake {
 
     String getAsString();
 
-    static Snowflake from(String s) {
+    static Snowflake snowflake(String s) {
         return new SnowflakeImpl(Long.parseLong(s));
     }
 
-    static Snowflake from(long id) {
+    static Snowflake snowflake(long id) {
         return new SnowflakeImpl(id);
     }
 
