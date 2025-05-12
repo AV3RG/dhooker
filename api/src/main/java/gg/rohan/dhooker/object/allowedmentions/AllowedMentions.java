@@ -2,6 +2,7 @@ package gg.rohan.dhooker.object.allowedmentions;
 
 import gg.rohan.dhooker.object.snowflake.Snowflake;
 import gg.rohan.dhooker.object.util.TriState;
+import gg.rohan.dhooker.object.util.immutable.Immutables;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,9 +23,9 @@ public class AllowedMentions {
             List<Snowflake> users,
             TriState repliedUser
     ) {
-        this.allowedTypes = allowedTypes;
-        this.roles = roles;
-        this.users = users;
+        this.allowedTypes = Immutables.nullableImmutable(allowedTypes);
+        this.roles = Immutables.nullableImmutable(roles);
+        this.users = Immutables.nullableImmutable(users);
         this.repliedUser = repliedUser;
     }
 
