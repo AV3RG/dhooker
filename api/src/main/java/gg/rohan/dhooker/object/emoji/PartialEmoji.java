@@ -5,7 +5,6 @@ import gg.rohan.dhooker.object.util.TriState;
 
 public class PartialEmoji {
 
-    //TODO: Check which fields are nullable
     private final Snowflake id;
     private final String name;
     private final TriState animated;
@@ -26,6 +25,22 @@ public class PartialEmoji {
 
     public TriState getAnimated() {
         return this.animated;
+    }
+
+    public PartialEmoji partialEmoji(String name, boolean animated) {
+        return new PartialEmoji(null, name, TriState.fromBoolean(animated));
+    }
+
+    public PartialEmoji partialEmoji(String name, TriState animated) {
+        return new PartialEmoji(null, name, animated);
+    }
+
+    public PartialEmoji partialEmoji(Snowflake id, String name, boolean animated) {
+        return new PartialEmoji(id, name, TriState.fromBoolean(animated));
+    }
+
+    public PartialEmoji partialEmoji(Snowflake id, String name, TriState animated) {
+        return new PartialEmoji(id, name, animated);
     }
 
 }
