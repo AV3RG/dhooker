@@ -9,4 +9,16 @@ public class DangerButton extends IdentifiableButton {
         super(ButtonStyle.DANGER, customId, label, emoji, disabled);
     }
 
+    public static DangerButton dangerButton(String customId, String label) {
+        return new DangerButton(customId, label, null, TriState.UNSET);
+    }
+
+    public static DangerButton dangerButton(String customId, String label, PartialEmoji emoji) {
+        return new DangerButton(customId, label, emoji, TriState.UNSET);
+    }
+
+    public static DangerButton dangerButton(String customId, String label, PartialEmoji emoji, TriState disabled) {
+        return new DangerButton(customId, label, emoji, disabled);
+    }
+
 }

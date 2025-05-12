@@ -9,4 +9,20 @@ public class SuccessButton extends IdentifiableButton {
         super(ButtonStyle.SUCCESS, customId, label, emoji, disabled);
     }
 
+    public static SuccessButton successButton(String customId, String label) {
+        return new SuccessButton(customId, label, null, TriState.UNSET);
+    }
+
+    public static SuccessButton successButton(String customId, String label, PartialEmoji emoji) {
+        return new SuccessButton(customId, label, emoji, TriState.UNSET);
+    }
+
+    public static SuccessButton successButton(String customId, String label, TriState disabled) {
+        return new SuccessButton(customId, label, null, disabled);
+    }
+
+    public static SuccessButton successButton(String customId, String label, PartialEmoji emoji, TriState disabled) {
+        return new SuccessButton(customId, label, emoji, disabled);
+    }
+
 }

@@ -9,4 +9,20 @@ public class PrimaryButton extends IdentifiableButton {
         super(ButtonStyle.PRIMARY, customId, label, emoji, disabled);
     }
 
+    public static PrimaryButton primary(String customId, String label) {
+        return new PrimaryButton(customId, label, null, TriState.UNSET);
+    }
+
+    public static PrimaryButton primaryButton(String customId, String label, PartialEmoji emoji) {
+        return new PrimaryButton(customId, label, emoji, TriState.UNSET);
+    }
+
+    public static PrimaryButton primaryButton(String customId, String label, TriState disabled) {
+        return new PrimaryButton(customId, label, null, disabled);
+    }
+
+    public static PrimaryButton primaryButton(String customId, String label, PartialEmoji emoji, TriState disabled) {
+        return new PrimaryButton(customId, label, emoji, disabled);
+    }
+
 }

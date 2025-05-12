@@ -35,4 +35,20 @@ public class LinkButton extends Button {
         return this.disabled;
     }
 
+    public static LinkButton linkButton(final String label, final String url) {
+        return new LinkButton(label, url, null, TriState.UNSET);
+    }
+
+    public static LinkButton linkButton(final String label, final String url, final PartialEmoji emoji) {
+        return new LinkButton(label, url, emoji, TriState.UNSET);
+    }
+
+    public static LinkButton linkButton(final String label, final String url, final TriState disabled) {
+        return new LinkButton(label, url, null, disabled);
+    }
+
+    public static LinkButton linkButton(final String label, final String url, final PartialEmoji emoji, final TriState disabled) {
+        return new LinkButton(label, url, emoji, disabled);
+    }
+
 }
