@@ -16,7 +16,7 @@ public class LinkButtonSerializer implements JsonSerializer<LinkButton> {
         JsonObject base = new JsonObject();
         base.add("type", context.serialize(button.getType()));
         base.add("style", context.serialize(button.getStyle()));
-        base.addProperty("label", button.getUrl());
+        base.addProperty("label", button.getLabel());
         base.add("emoji", context.serialize(button.getEmoji()));
         base.addProperty("url", button.getUrl());
         if (TriState.isExplicitSet(button.getDisabled())) {
