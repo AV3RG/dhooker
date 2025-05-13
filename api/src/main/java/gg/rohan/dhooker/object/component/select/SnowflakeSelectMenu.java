@@ -2,6 +2,7 @@ package gg.rohan.dhooker.object.component.select;
 
 import gg.rohan.dhooker.object.component.ComponentType;
 import gg.rohan.dhooker.object.util.TriState;
+import gg.rohan.dhooker.object.util.immutable.Immutables;
 
 import java.util.List;
 
@@ -12,13 +13,13 @@ public abstract class SnowflakeSelectMenu extends SelectMenu {
     public SnowflakeSelectMenu(
             String customId,
             String placeholder,
-            int minRequired,
-            int maxRequired,
+            Integer minRequired,
+            Integer maxRequired,
             TriState disabled,
             List<SelectDefaultValue> defaultValues
     ) {
         super(ComponentType.USER_SELECT, customId, placeholder, minRequired, maxRequired, disabled);
-        this.defaultValues = defaultValues;
+        this.defaultValues = Immutables.nullableImmutable(defaultValues);
     }
 
     public List<SelectDefaultValue> getDefaultValues() {

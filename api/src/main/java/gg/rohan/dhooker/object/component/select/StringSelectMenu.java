@@ -12,8 +12,8 @@ public class StringSelectMenu extends SelectMenu {
     public StringSelectMenu(
             String customId,
             String placeholder,
-            int minRequired,
-            int maxRequired,
+            Integer minRequired,
+            Integer maxRequired,
             TriState disabled,
             List<StringSelectOption> options
     ) {

@@ -9,8 +9,8 @@ public class UserSelectMenu extends SnowflakeSelectMenu {
     public UserSelectMenu(
             String customId,
             String placeholder,
-            int minRequired,
-            int maxRequired,
+            Integer minRequired,
+            Integer maxRequired,
             TriState disabled,
             List<SelectDefaultValue> defaultValues
     ) {
