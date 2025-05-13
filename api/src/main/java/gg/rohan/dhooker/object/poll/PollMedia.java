@@ -20,4 +20,12 @@ public class PollMedia {
         return this.emoji;
     }
 
+    public static PollMedia pollMedia(String text) {
+        return new PollMedia(text, null);
+    }
+
+    public static PollMedia pollMedia(String text, PartialEmoji emoji) {
+        return new PollMedia(text, emoji);
+    }
+
 }
